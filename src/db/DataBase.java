@@ -3,33 +3,52 @@ package db;
 import entity.User;
 import entity.meter.Meter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 /**
- * База данных без реализации
+ * База данных показаний счетчиков
  *
  * @author Alexey Zhukov
  */
-public interface DataBase {
+public class DataBase {
 
     /**
-     * Добавление показания счетчика по ID пользователя
-     * @param idUser ID пользователя
-     * @param meter показание счетчика
+     * Синглтон базы данных
      */
-    void addMeter(Long idUser, Meter meter);
+    private static DataBase base;
 
     /**
-     * Получение списка показаний по ID пользователя
-     * @param idUser ID пользователя
-     * @return список показаний по ID пользователя
+     * Словарь (ключ ID пользователя, VALUE - список показаний данного пользователя)
      */
-    List<Meter> getListMeterByUserId(Long idUser);
+    private final Map<Long,List<Meter>> meters;
+
+    private final List<User> users;
+
+    private DataBase() {
+        meters = new HashMap<>();
+        users = new ArrayList<>();
+    }
 
     /**
-     * Получение пользователя по имени и паролю
-     * @return
+     * Получение объекта базы данных
+     * @return объект базы данных
      */
-    Optional<User> getUser(String name, String password);
+    public static DataBase getDb() {
+        if (base == null){
+            base = new DataBase();
+        }
+        return base;
+    }
+
+    public Map<Long, List<Meter>> getMeters() {
+        return meters;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
 }

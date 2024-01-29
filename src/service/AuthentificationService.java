@@ -1,10 +1,13 @@
 package service;
 
 import db.DataBase;
+import db.UserDao;
+import db.impl.UserDaoImpl;
 import entity.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Optional;
 
 /**
@@ -15,9 +18,24 @@ import java.util.Optional;
 public class AuthentificationService {
 
     /**
-     * Вход в приложение
+     * Считыватель данных
      */
-    public int login(BufferedReader reader) {
+    private final BufferedReader reader;
+
+    /**
+     * DAO для работы с пользователем
+     */
+    private final UserDao userDao;
+
+    public AuthentificationService() {
+        reader = new BufferedReader(new InputStreamReader(System.in));
+        userDao = new UserDaoImpl();
+    }
+
+    /**
+     * Сервис входа в приложение
+     */
+    public int login() {
         while (true) {
             try {
                 System.out.println("1. Войти");
@@ -37,14 +55,14 @@ public class AuthentificationService {
     /**
      * Получение пользователя
      */
-    public Optional<User> getUser(BufferedReader reader, DataBase dataBase) {
+    public Optional<User> getUser() {
         try {
             System.out.println("Введите имя пользователя:");
             String name = reader.readLine();
             System.out.println("Введите пароль:");
             String password = reader.readLine();
 
-            return dataBase.getUser(name, password);
+            return userDao.getUser(name, password);
         } catch (IOException e) {
             System.out.println("Ошибка ввода данных");
         }
