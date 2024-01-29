@@ -1,5 +1,6 @@
 package endpoint;
 
+import entity.Answer;
 import entity.meter.Meter;
 
 import java.util.Optional;
@@ -8,6 +9,12 @@ import java.util.Optional;
  * Интерфейс Endpoint для работы с измерениями
  */
 public interface MeterEndpoint {
+
+    /**
+     * Эндпоинт стартового окна вопросов
+     * @return выбранный ответ
+     */
+    Answer getAnswer();
 
     /**
      * Эндпоинт подачи показаний

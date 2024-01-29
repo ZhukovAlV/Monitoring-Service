@@ -1,10 +1,17 @@
 package service;
 
+import entity.Answer;
 import entity.meter.Meter;
 
 import java.util.Optional;
 
 public interface MeterService {
+
+    /**
+     * Сервис отображения вопросов пользователю по показаниям
+     * @return выбранный ответ
+     */
+    Answer getAnswer();
 
     /**
      * Сервис подачи показаний

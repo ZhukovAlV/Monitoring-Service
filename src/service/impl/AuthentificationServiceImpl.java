@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import entity.Answer;
 import entity.User;
 import service.AuthentificationService;
 
@@ -33,16 +34,18 @@ public class AuthentificationServiceImpl implements AuthentificationService {
     }
 
     @Override
-    public int login() {
+    public Answer login() {
         while (true) {
             try {
                 System.out.println("1. Войти");
                 System.out.println("2. Зарегистрироваться");
                 int input = Integer.parseInt(reader.readLine());
-                if (input == 1 || input == 2) {
-                    return input;
+                if (input == 1) {
+                    return Answer.SIGNIN;
+                } else if (input == 2) {
+                    return Answer.REGISTER;
                 } else {
-                    System.out.println("Введите число из списка.");
+                    return Answer.UNKNOWN;
                 }
             } catch (Exception e) {
                 System.out.println("Введен некорректный номер. Введите еще раз.");

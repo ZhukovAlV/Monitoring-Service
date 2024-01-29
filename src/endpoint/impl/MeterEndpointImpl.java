@@ -1,6 +1,7 @@
 package endpoint.impl;
 
 import endpoint.MeterEndpoint;
+import entity.Answer;
 import entity.meter.Meter;
 import service.MeterService;
 import service.impl.MeterServiceImpl;
@@ -16,6 +17,11 @@ public class MeterEndpointImpl implements MeterEndpoint {
 
     public MeterEndpointImpl() {
         this.meterService = new MeterServiceImpl();
+    }
+
+    @Override
+    public Answer getAnswer() {
+        return meterService.getAnswer();
     }
 
     @Override

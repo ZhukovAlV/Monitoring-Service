@@ -1,5 +1,6 @@
 package endpoint;
 
+import entity.Answer;
 import entity.User;
 
 import java.util.Optional;
@@ -13,7 +14,7 @@ public interface UserEndpoint {
      * Вход в приложение
      * @return выбранный пользователем ответ
      */
-    int login();
+    Answer login();
 
     Optional<User> authentification();
 

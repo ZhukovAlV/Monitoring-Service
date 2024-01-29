@@ -1,5 +1,6 @@
 package db;
 
+import entity.Role;
 import entity.User;
 import entity.meter.Meter;
 
@@ -30,6 +31,9 @@ public class DataBase {
     private DataBase() {
         meters = new HashMap<>();
         users = new ArrayList<>();
+        // тестовые данные
+        users.add(new User(1L, "Test", "Test",
+                "Test", new Role[]{Role.USER}));
     }
 
     /**

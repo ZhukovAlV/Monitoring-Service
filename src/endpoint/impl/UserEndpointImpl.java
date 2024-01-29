@@ -1,6 +1,7 @@
 package endpoint.impl;
 
 import endpoint.UserEndpoint;
+import entity.Answer;
 import entity.User;
 import service.AuthentificationService;
 import service.RegistrationService;
@@ -30,7 +31,7 @@ public class UserEndpointImpl implements UserEndpoint {
     }
 
     @Override
-    public int login() {
+    public Answer login() {
         return authentificationService.login();
     }
 

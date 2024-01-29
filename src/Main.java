@@ -7,7 +7,7 @@ import entity.User;
 import java.util.Optional;
 
 /**
- * Класс приложения с точкой входа
+ * Точка входа в приложение
  *
  * @author Alexey Zhukov
  */
@@ -20,14 +20,51 @@ public class Main {
     private final static MeterEndpoint METER_ENDPOINT = new MeterEndpointImpl();
 
     public static void main(String[] args) {
+        login();
+    }
 
-        // Вход в приложение
-        int input = USER_ENDPOINT.login();
-        if (input == 1) {
-            Optional<User> userOpt = USER_ENDPOINT.authentification();
-        } else {
+    /**
+     * Окно входа
+     */
+    private static void login() {
+        switch (USER_ENDPOINT.login()) {
+            case SIGNIN -> {
+                Optional<User> userOpt = USER_ENDPOINT.authentification();
+                if (userOpt.isEmpty()) {
+                    System.out.println("Пользователь не найден. " +
+                            "Будет произведен переход на начальное окно.");
+                    login();
+                } else {
+                    startMeter(userOpt.get());
+                }
+            }
+            case REGISTER -> {
 
+            }
+            default -> System.out.println("Не был выбран ни один из допустимых ответов. " +
+                    "Программа будет завершена.");
         }
+    }
 
+    /**
+     * Окно ввода и просмотра показаний
+     */
+    private static void startMeter(User user) {
+        switch (METER_ENDPOINT.getAnswer()) {
+            case INPUT_METER -> {
+
+            }
+            case SHOW_LAST_METER -> {
+
+            }
+            case SHOW_METER_BY_DATA -> {
+
+            }
+            case SHOW_HISTORY_METER -> {
+
+            }
+            default -> System.out.println("Не был выбран ни один из допустимых ответов. " +
+                    "Программа будет завершена.");
+        }
     }
 }

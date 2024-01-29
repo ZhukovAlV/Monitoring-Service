@@ -1,5 +1,6 @@
 package service;
 
+import entity.Answer;
 import entity.User;
 
 import java.util.Optional;
@@ -14,7 +15,7 @@ public interface AuthentificationService {
     /**
      * Вход в приложение
      */
-    int login();
+    Answer login();
 
     /**
      * Получение пользователя
