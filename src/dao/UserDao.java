@@ -13,7 +13,7 @@ public interface UserDao {
 
     /**
      * Получение пользователя по имени и паролю
-     * @return
+     * @return пользовтель или empty
      */
     Optional<User> getUser(String name, String password);
 

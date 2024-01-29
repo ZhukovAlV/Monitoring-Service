@@ -1,4 +1,7 @@
+import endpoint.MeterEndpoint;
 import endpoint.UserEndpoint;
+import endpoint.impl.MeterEndpointImpl;
+import endpoint.impl.UserEndpointImpl;
 import entity.User;
 
 import java.util.Optional;
@@ -10,7 +13,11 @@ import java.util.Optional;
  */
 public class Main {
 
-    private static final UserEndpoint USER_ENDPOINT = new UserEndpoint();
+    /**
+     * Инициализируем необходимые эндпойнты
+     */
+    private final static UserEndpoint USER_ENDPOINT = new UserEndpointImpl();
+    private final static MeterEndpoint METER_ENDPOINT = new MeterEndpointImpl();
 
     public static void main(String[] args) {
 

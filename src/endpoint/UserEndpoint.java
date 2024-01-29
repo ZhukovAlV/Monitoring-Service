@@ -1,49 +1,24 @@
 package endpoint;
 
 import entity.User;
-import service.AuthentificationService;
-import service.RegistrationService;
 
 import java.util.Optional;
 
 /**
- * Endpoint для работы с пользователем
+ * Интерфейс Endpoint для работы с пользователем
  */
-public class UserEndpoint {
-
-    /**
-     * Аутентификация пользователя
-     */
-    private final AuthentificationService authentificationService;
-
-    /**
-     * Регистрация пользователя
-     */
-    private final RegistrationService registrationService;
-
-    public UserEndpoint() {
-        authentificationService = new AuthentificationService();
-        registrationService = new RegistrationService();
-    }
+public interface UserEndpoint {
 
     /**
      * Вход в приложение
      * @return выбранный пользователем ответ
      */
-    public int login() {
-        return authentificationService.login();
-    }
+    int login();
 
-    public Optional<User> authentification() {
-        return authentificationService.getUser();
-    }
+    Optional<User> authentification();
 
-    public boolean authorization() {
-        return false;
-    }
+    boolean authorization();
 
-    public boolean registration() {
-        return false;
-    }
+    boolean registration();
 
 }

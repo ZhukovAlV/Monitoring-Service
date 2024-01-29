@@ -1,9 +1,4 @@
 package service;
 
-/**
- * Регистрация пользователя
- *
- * @author Alexey Zhukov
- */
-public class RegistrationService {
+public interface RegistrationService {
 }
