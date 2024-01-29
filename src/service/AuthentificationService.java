@@ -1,8 +1,7 @@
 package service;
 
-import db.DataBase;
-import db.UserDao;
-import db.impl.UserDaoImpl;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 import entity.User;
 
 import java.io.BufferedReader;

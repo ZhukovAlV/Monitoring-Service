@@ -1,9 +1,7 @@
-package db;
+package dao;
 
 import entity.User;
-import entity.meter.Meter;
 
-import java.util.List;
 import java.util.Optional;
 
 /**

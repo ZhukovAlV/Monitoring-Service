@@ -1,6 +1,6 @@
-package db.impl;
+package dao.impl;
 
-import db.MeterDao;
+import dao.MeterDao;
 import entity.meter.Meter;
 
 import java.util.List;

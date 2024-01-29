@@ -1,7 +1,7 @@
-package db.impl;
+package dao.impl;
 
 import db.DataBase;
-import db.UserDao;
+import dao.UserDao;
 import entity.User;
 
 import java.util.Optional;
