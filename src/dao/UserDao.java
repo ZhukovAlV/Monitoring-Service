@@ -13,8 +13,14 @@ public interface UserDao {
 
     /**
      * Получение пользователя по имени и паролю
-     * @return пользовтель или empty
+     * @return пользователь или empty
      */
     Optional<User> getUser(String name, String password);
+
+    /**
+     * Проверка имени на наличие в БД
+     * @return имеется ли данный пользователь в БД
+     */
+    boolean isNameExist(String name);
 
 }
