@@ -12,6 +12,8 @@ import java.util.Optional;
 
 /**
  * Endpoint для работы с пользователем
+ *
+ * @author Alexey Zhukov
  */
 public class UserEndpointImpl implements UserEndpoint {
 
@@ -46,8 +48,8 @@ public class UserEndpointImpl implements UserEndpoint {
     }
 
     @Override
-    public boolean registration() {
-        return false;
+    public Optional<User> registration() {
+        return registrationService.register();
     }
 
 }

@@ -20,6 +20,10 @@ public interface UserEndpoint {
 
     boolean authorization();
 
-    boolean registration();
+    /**
+     * Регистрация пользователя
+     * @return зарегистрированный пользователь или empty
+     */
+    Optional<User> registration();
 
 }

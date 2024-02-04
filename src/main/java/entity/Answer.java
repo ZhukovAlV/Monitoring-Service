@@ -12,9 +12,10 @@ public enum Answer {
     SHOW_LAST_METER("Посмотреть актуальное измерение"),
     SHOW_METER_BY_DATA("Посмотреть измерение на нужную дату"),
     SHOW_HISTORY_METER("Посмотреть историю измерений"),
+    EXIT("Выход"),
     UNKNOWN("Неизвестное значение");
 
-    private String value;
+    private final String value;
 
     Answer(String value) {
         this.value = value;

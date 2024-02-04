@@ -48,7 +48,7 @@ public class AuthentificationServiceImpl implements AuthentificationService {
                     return Answer.UNKNOWN;
                 }
             } catch (Exception e) {
-                System.out.println("Введен некорректный номер. Введите еще раз.");
+                System.out.println("Введен некорректный номер. Введите еще раз");
             }
         }
     }

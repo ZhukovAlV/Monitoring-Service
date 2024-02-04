@@ -39,7 +39,14 @@ public class Main {
                 }
             }
             case REGISTER -> {
-
+                Optional<User> userOpt = USER_ENDPOINT.registration();
+                if (userOpt.isEmpty()) {
+                    System.out.println("Пользователь не был зарегистрирован. " +
+                            "Будет произведен переход на начальное окно.");
+                    login();
+                } else {
+                    startMeter(userOpt.get());
+                }
             }
             default -> System.out.println("Не был выбран ни один из допустимых ответов. " +
                     "Программа будет завершена.");
@@ -52,7 +59,7 @@ public class Main {
     private static void startMeter(User user) {
         switch (METER_ENDPOINT.getAnswer()) {
             case INPUT_METER -> {
-
+                //METER_ENDPOINT.add(user);
             }
             case SHOW_LAST_METER -> {
 

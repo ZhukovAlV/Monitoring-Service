@@ -21,4 +21,10 @@ public class UserDaoImpl implements UserDao {
                 .findFirst();
     }
 
+    @Override
+    public boolean isNameExist(String name) {
+        return DataBase.getDb().getUsers().stream()
+                .anyMatch(user -> user.getName().equals(name));
+    }
+
 }
